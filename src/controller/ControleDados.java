@@ -86,6 +86,7 @@ public class ControleDados {
         Tecnico aux = new Tecnico(d_tecnico[0], Long.parseLong(d_tecnico[1]), 
                             Integer.parseInt(d_tecnico[2]), Integer.parseInt(d_tecnico[3]));
     
+        aux.calc_aproveitamento(Integer.parseInt(d_tecnico[2]), Integer.parseInt(d_tecnico[3]));
         if(flag){
             dados.insereTecnico(aux, index_time);
             return true;
@@ -136,7 +137,7 @@ public class ControleDados {
             return true;   
         }
     }
-        
+
     public boolean removeJogador(int index_time, int pos){
 
         if(index_time > dados.getQntTimes() || index_time < 0){

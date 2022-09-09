@@ -48,8 +48,8 @@ public class Tecnico extends Pessoa{
         this.num_vitorias = num_vitorias;
     }
 
-    public float calc_aproveitamento(int num_jogos, int num_vitorias){
-        return ((num_vitorias / num_jogos)*100);
+    public void calc_aproveitamento(int num_jogos, int num_vitorias){
+        taxa_aproveitamento = ((num_vitorias / num_jogos)*100);
     }    
 }
 

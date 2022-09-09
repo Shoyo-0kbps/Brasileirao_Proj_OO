@@ -129,10 +129,6 @@ public class Time {
       this.pontos = pontos;
    }
    
-   public void incPts(int ptsAcr){
-      pontos += ptsAcr;
-   }
-
    public int getNumJogos(){
       return num_jogos;
    }
@@ -141,20 +137,12 @@ public class Time {
       this.num_jogos = num_jogos;
    }
    
-   public void incNumJgs(){
-      num_jogos += 1;
-   }
-
    public int getNumEmpates(){
       return num_empates;
    }
    
    public void setNumEmpates(int num_empates){
       this.num_empates = num_empates;
-   }
-
-   public void incNumEpt(){
-      num_empates += 1;  
    }
 
    public int getNumVitorias(){
@@ -165,10 +153,6 @@ public class Time {
       this.num_vitorias = num_vitorias;
    }
 
-   public void incNumVts(){
-      num_vitorias += 1;
-   }
-
    public int getGolsPro(){
       return gols_pro;
    }
@@ -177,20 +161,12 @@ public class Time {
       this.gols_pro = gols_pro;
    }
 
-   public void incGolsPro(int num_gols){
-      gols_pro += num_gols;
-   }
-
    public int getGolsCon(){
       return gols_contra;
    }
    
    public void setGolsCon(int gols_contra){
       this.gols_contra = gols_contra;
-   }
-
-   public void incGolsCon(int num_gols){
-      gols_contra += num_gols;
    }
 
    public int getSaldGols(){
