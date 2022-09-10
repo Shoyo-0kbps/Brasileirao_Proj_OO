@@ -147,6 +147,7 @@ public class TelaCadastroTime implements ActionListener {
 
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
+		botaoJogadores.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -188,7 +189,11 @@ public class TelaCadastroTime implements ActionListener {
             if(res){
                 mensagemSucessoExclusao();
             } else mensagemErroExclusa();
-        }   
+        }
+
+        if(src == botaoJogadores){
+            new TelaElenco().mostraElenco(dados, pos);
+        }
     }
  
     public void mensagemSucessoExclusao() {
@@ -212,6 +217,4 @@ public class TelaCadastroTime implements ActionListener {
 		JOptionPane.showMessageDialog(null,
         "ERRO AO SALVAR OS DADOS!\n ", null, JOptionPane.ERROR_MESSAGE);
 	}
-    
-
 }
