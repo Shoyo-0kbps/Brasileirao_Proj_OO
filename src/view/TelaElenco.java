@@ -55,7 +55,6 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
         janela.add(botaoAtualizar);
 
 		janela.setSize(445, 550);
-		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
     
         botaoAdicionarT.addActionListener(this);
