@@ -36,39 +36,39 @@ public class ControleTime {
         return times.get(index_time).getAbrev();
     }
     
-    public long getID(int index_time){
-        return times.get(index_time).getID();
+    public String getID(int index_time){
+        return String.valueOf(times.get(index_time).getID());
     }
     
-    public int getPontos(int index_time){
-        return times.get(index_time).getPontos();
+    public String getPontos(int index_time){
+        return String.valueOf(times.get(index_time).getPontos());
     }
     
-    public int getNumJogos(int index_time){
-        return times.get(index_time).getNumJogos();
+    public String getNumJogos(int index_time){
+        return String.valueOf(times.get(index_time).getNumJogos());
     }
     
-    public int getNumEmpates(int index_time){
-        return times.get(index_time).getNumEmpates();
+    public String getNumEmpates(int index_time){
+        return String.valueOf(times.get(index_time).getNumEmpates());
     }
     
-    public int getNumVitorias(int index_time){
-        return times.get(index_time).getNumVitorias();
+    public String getNumVitorias(int index_time){
+        return String.valueOf(times.get(index_time).getNumVitorias());
     }
     
-    public int getGolsPro(int index_time){
-        return times.get(index_time).getGolsPro();
+    public String getGolsPro(int index_time){
+        return String.valueOf(times.get(index_time).getGolsPro());
     }
 
-    public int getGolsCon(int index_time){
-        return times.get(index_time).getGolsCon();
+    public String getGolsCon(int index_time){
+        return String.valueOf(times.get(index_time).getGolsCon());
     }
 
-    public int getSaldGols(int index_time){
-        return times.get(index_time).getSaldGols();   
+    public String getSaldGols(int index_time){
+        return String.valueOf(times.get(index_time).getSaldGols());   
     }
 
-    public float getAprov(int index_time){
-        return times.get(index_time).getTaxaAproveitamento();
+    public String getAprov(int index_time){
+        return String.valueOf(times.get(index_time).getTaxaAproveitamento());
     }
 }

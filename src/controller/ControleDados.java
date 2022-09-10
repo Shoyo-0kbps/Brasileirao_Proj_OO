@@ -47,10 +47,10 @@ public class ControleDados {
                             Integer.parseInt(d_time[9]), Float.parseFloat(d_time[10]));
     
         if(flag){
-            dados.insereTime(aux);
+            dados.editaTime(aux, pos);
             return true;
         } else {
-            dados.editaTime(aux, pos);
+            dados.insereTime(aux);
             return true;   
         }
     }

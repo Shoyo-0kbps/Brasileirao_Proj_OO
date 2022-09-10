@@ -27,15 +27,15 @@ public class ControleJogador {
         return jogadores.get(index).getPosicao();
     }
     
-    public long getID(int index){
-        return jogadores.get(index).getID();
+    public String getID(int index){
+        return String.valueOf(jogadores.get(index).getID());
     }
     
-    public int getSaldGols(int index){
-        return jogadores.get(index).getSaldoGols();
+    public String getSaldGols(int index){
+        return String.valueOf(jogadores.get(index).getSaldoGols());
     }
     
-    public int getNumCamisa(int index){
-        return jogadores.get(index).getNumCamisa();
+    public String getNumCamisa(int index){
+        return String.valueOf(jogadores.get(index).getNumCamisa());
     }
 }

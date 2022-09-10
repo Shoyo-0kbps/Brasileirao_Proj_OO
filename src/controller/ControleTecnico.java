@@ -28,19 +28,19 @@ public class ControleTecnico {
         return tecnicos.get(index).getPosicao();
     }
     
-    public long getID(int index){
-        return tecnicos.get(index).getID();
+    public String getID(int index){
+        return String.valueOf(tecnicos.get(index).getID());
     }
     
-    public int getNumJogos(int index){
-        return tecnicos.get(index).getNumJogos();
+    public String getNumJogos(int index){
+        return String.valueOf(tecnicos.get(index).getNumJogos());
     }
     
-    public int getNumVitorias(int index){
-        return tecnicos.get(index).getNumVitorias();
+    public String getNumVitorias(int index){
+        return String.valueOf(tecnicos.get(index).getNumVitorias());
     }
 
-    public float getTaxaAproveitamento(int index){
-        return tecnicos.get(index).getTaxaAproveitamento();
+    public String getTaxaAproveitamento(int index){
+        return String.valueOf(tecnicos.get(index).getTaxaAproveitamento());
     }
 }
