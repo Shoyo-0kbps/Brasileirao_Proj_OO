@@ -66,6 +66,17 @@ public class ControleDados {
         }
     }
     
+    public int buscaTime(String nome_time){
+        ArrayList<Time> aux = dados.getTimes();
+        
+        for(int pos_time = 0; pos_time < dados.getQntTimes(); pos_time++){
+            if(aux.get(pos_time).getName().toLowerCase().equals(nome_time.toLowerCase())){
+                return pos_time;
+            }
+        }
+        return -1;
+    }
+
     public void ordenaTimes(){
         OrdenaTimes ordenacao = new OrdenaTimes();
         Collections.sort(dados.getTimes(), ordenacao);

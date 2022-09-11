@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.text.DefaultStyledDocument.ElementSpec;
+
 import controller.*;
 
 
@@ -114,6 +116,7 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
     
         botaoAdicionar.addActionListener(this);
         botaoAtualizar.addActionListener(this);
+        botaoBuscar.addActionListener(this);
         listaTimes.addListSelectionListener(this);
     }
 
@@ -130,6 +133,15 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
             /// TODO SALVAR DADOS
             listaTimes.updateUI();
         }
+
+        if(src == botaoBuscar){
+            String nome_time = valorBusca.getText();
+            int aux = dados.buscaTime(nome_time);
+            if(aux == -1)
+                mensagemErroBusca();
+            else   
+                new TelaCadastroTime().insereEditaTime(true, dados, aux);
+        }
     }
 
     public void valueChanged(ListSelectionEvent e) {
@@ -138,4 +150,10 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
             new TelaCadastroTime().insereEditaTime(true, dados, listaTimes.getSelectedIndex());
         }
     }
+
+    public void mensagemErroBusca() {
+		JOptionPane.showMessageDialog(null, "O TIME BUSCADO NAO ESTA NA TABELA\nOU O NOME FOI ESCRITO ERRONEAMENTE", null, 
+				JOptionPane.INFORMATION_MESSAGE);
+		janela.dispose();
+	}
 }
