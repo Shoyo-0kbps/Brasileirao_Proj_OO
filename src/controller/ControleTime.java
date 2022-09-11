@@ -1,11 +1,20 @@
 package controller;
 import java.util.ArrayList;
 import model.*;
-
+/**
+ * Classe ControleTime reune, obtem e compila os dados de um time para a camada de visualizacao  
+ * @author Francisco Mizael Santos da Silva
+ * @since 2022
+ * @version 1.0
+ */
 public class ControleTime {
     private ArrayList<Time> times;  
     private int qnt_times;
 
+    /**
+     * Construtor ControleTimes
+     * @param dados dados do timpo ControleDados que contem a lista de times
+     */
     public ControleTime(ControleDados dados){
         times = dados.getTimes();
         qnt_times = dados.getQntTotalTimes();
