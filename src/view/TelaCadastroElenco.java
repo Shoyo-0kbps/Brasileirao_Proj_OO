@@ -14,6 +14,7 @@ import model.Tecnico;
 
 public class TelaCadastroElenco implements ActionListener {
 
+    //JLabels e respectivo JTexField
     private JFrame janela;
     private static JLabel labelNome = new JLabel("Nome: ");
 	private JTextField valorNome;
@@ -29,8 +30,10 @@ public class TelaCadastroElenco implements ActionListener {
 	private JTextField valorNJogos;
     private static JLabel labelNVit = new JLabel("Vitorias: ");
 	private JTextField valorNVit;
+    //Botoes
     private JButton botaoExcluir = new JButton("Excluir");
 	private JButton botaoSalvar = new JButton("Salvar");
+    //Dados
     private ControleDados dados;
     private String[] n_dado = new String[5];
     private int flag;
@@ -50,7 +53,7 @@ public class TelaCadastroElenco implements ActionListener {
 
         janela = new JFrame("Cadastro Time");
 
-        if(flag ==  0){
+        if(flag ==  0){ // Cria novo jogador
 
             janela = new JFrame("Cadastro Jogador");
             
@@ -61,7 +64,7 @@ public class TelaCadastroElenco implements ActionListener {
             valorNCam = new JTextField(200);
         
         } 
-        else if(flag == 1) {
+        else if(flag == 1) { // Edita Jogador
             
             valorNome = new JTextField(jogador.getNome(pos), 200);
             valorPos = new JTextField(jogador.getPosicao(pos), 200);
@@ -69,14 +72,14 @@ public class TelaCadastroElenco implements ActionListener {
             valorSaldGols = new JTextField(jogador.getSaldGols(pos), 200);
             valorNCam = new JTextField(jogador.getNumCamisa(pos), 200);
         
-        } else if(flag == 2) {
+        } else if(flag == 2) { // Cria novo Tecnico
             
             valorNome = new JTextField(200);
             valorID = new JTextField(200);
             valorNJogos =  new JTextField(200);
             valorNVit =  new JTextField(200);
 
-        } else if(flag == 3) {
+        } else if(flag == 3) { // Edita Tecnico
 
             valorNome = new JTextField(tecnico.getNome(pos), 200);
             valorID = new JTextField(tecnico.getID(pos), 200);
@@ -84,10 +87,16 @@ public class TelaCadastroElenco implements ActionListener {
             valorNVit =  new JTextField(tecnico.getNumVitorias(pos), 200);
         
         }
-    	
-        botaoSalvar.setBounds(170, 350, 125, 30);
-        botaoExcluir.setBounds(300, 350, 125, 30);
-        
+
+        // Cria botoes de acordo com a flag
+        if(flag == 0 || flag == 2)
+            botaoSalvar.setBounds(170, 350, 125, 30);
+        else{
+            botaoSalvar.setBounds(40, 350, 125, 30);
+            botaoExcluir.setBounds(300, 350, 125, 30);
+        }
+
+        // Cria dados em comum jogador tecnico
         labelNome.setBounds(40, 20, 150, 20);
 		valorNome.setBounds(200, 20, 180, 20);
 		labelID.setBounds(40, 45, 150, 20);
@@ -99,6 +108,7 @@ public class TelaCadastroElenco implements ActionListener {
         this.janela.add(valorNome);
         this.janela.add(valorID);
 
+        // Adiciona elementos
         if(flag == 0 || flag == 1){
             
             labelPos.setBounds(40, 70, 150, 20);
@@ -135,8 +145,8 @@ public class TelaCadastroElenco implements ActionListener {
                 this.janela.add(botaoExcluir);
         } 
 
+        //Janela
         this.janela.setLayout(null);
-
 		this.janela.setSize(465, 500);
 		this.janela.setVisible(true);
 
@@ -146,7 +156,8 @@ public class TelaCadastroElenco implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		if(src == botaoSalvar) {
+        // Envia dados a ser salvo ou excluidos para controle
+        if(src == botaoSalvar) {
             try{
                 boolean res = false;
 
@@ -198,7 +209,7 @@ public class TelaCadastroElenco implements ActionListener {
             }
         }
     }
- 
+    
     public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
@@ -218,6 +229,6 @@ public class TelaCadastroElenco implements ActionListener {
 	
     public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
-        "ERRO AO SALVAR OS DADOS!\n ", null, JOptionPane.ERROR_MESSAGE);
+        "ERRO AO SALVAR OS DADOS!\nOS DADOS PREENCHIDOS POSSUEM FORMATO\nINVALIDOS!!", null, JOptionPane.ERROR_MESSAGE);
 	}
 }

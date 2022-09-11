@@ -1,8 +1,10 @@
 package controller;
+import java.security.cert.CollectionCertStoreParameters;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
-import javax.lang.model.type.ArrayType;
-
+import model.comparator.*;
 import model.*;
 
 public class ControleDados {
@@ -64,6 +66,11 @@ public class ControleDados {
         }
     }
     
+    public void ordenaTimes(){
+        OrdenaTimes ordenacao = new OrdenaTimes();
+        Collections.sort(dados.getTimes(), ordenacao);
+    }
+
     /////////////// TECNICOS ///////////////
     public ArrayList<Tecnico> getTecnicos(int index_time){
         return dados.getTecnicos(index_time);

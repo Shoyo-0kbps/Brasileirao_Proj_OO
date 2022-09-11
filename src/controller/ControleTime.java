@@ -13,20 +13,38 @@ public class ControleTime {
 
     public String[] getNomeTimes(){
         String[] aux = new String[qnt_times];
-        for(int i = 0; i < qnt_times; i++){
+        for(int i = 0; i < qnt_times; i++)
             aux[i] = times.get(i).getName();
-        }
         return aux;
     }
 
-    //public int[] getPontosTimes(){
-    //    int[] aux = new int[qntTimes];
-    //    for(int i = 0; i < qntTimes; i++){
-    //        aux[i] = times.get(i).getPontos();
-    //    }
-    //    return aux;
-    //}
+    public String[] getPontosTimes(){
+        String[] aux = new String[qnt_times];
+        for(int i = 0; i < qnt_times; i++)
+            aux[i] = String.valueOf(times.get(i).getPontos()); 
+        return aux;
+    }    
 
+    public String[] getNJogos(){
+        String[] aux = new String[qnt_times];
+        for(int i = 0; i < qnt_times; i++)
+            aux[i] = String.valueOf(times.get(i).getNumJogos()); 
+        return aux;
+    }    
+    
+    public String[] getNVitorias(){
+        String[] aux = new String[qnt_times];
+        for(int i = 0; i < qnt_times; i++)
+            aux[i] = String.valueOf(times.get(i).getNumVitorias()); 
+        return aux;
+    }    
+    
+    public String[] getNEmpates(){
+        String[] aux = new String[qnt_times];
+        for(int i = 0; i < qnt_times; i++)
+            aux[i] = String.valueOf(times.get(i).getNumEmpates()); 
+        return aux;
+    }    
 
     public String getNome(int index_time){
         return times.get(index_time).getName();
