@@ -46,13 +46,11 @@ public class ControleDados {
                             Integer.parseInt(d_time[7]), Integer.parseInt(d_time[8]), 
                             Integer.parseInt(d_time[9]), Float.parseFloat(d_time[10]));
     
-        if(flag){
-            dados.editaTime(aux, pos);
-            return true;
-        } else {
+        if(flag) 
+            dados.editaTime(aux,pos);
+        else 
             dados.insereTime(aux);
-            return true;   
-        }
+        return true;
     }
     
     public boolean removeTime(int pos){
@@ -88,10 +86,10 @@ public class ControleDados {
     
         aux.calc_aproveitamento(Integer.parseInt(d_tecnico[2]), Integer.parseInt(d_tecnico[3]));
         if(flag){
-            dados.insereTecnico(aux, index_time);
+            dados.editaTecnico(aux, index_time, pos);
             return true;
         } else {
-            dados.editaTecnico(aux, index_time, pos);
+            dados.insereTecnico(aux, index_time);
             return true;   
         }
     }
@@ -129,13 +127,11 @@ public class ControleDados {
         Jogador aux = new Jogador(d_jogador[0], d_jogador[1], Long.parseLong(d_jogador[2]), 
                             Integer.parseInt(d_jogador[3]), Integer.parseInt(d_jogador[4]));
     
-        if(flag){
-            dados.insereJogador(aux, index_time);
-            return true;
-        } else {
+        if(flag)
             dados.editaJogador(aux, index_time, pos);
-            return true;   
-        }
+        else 
+            dados.insereJogador(aux, index_time);
+        return true;   
     }
 
     public boolean removeJogador(int index_time, int pos){

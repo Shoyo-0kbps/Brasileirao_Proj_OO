@@ -21,9 +21,9 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
     private String[] listaNomesJog = new String[10];
     private int pos;
 
-    public void mostraElenco(ControleDados dados, int pos){
+    public void mostraElenco(ControleDados dados, int pos_time){
         
-        this.pos = pos;
+        pos = pos_time;
         
         listaNomesTec = new ControleTecnico(dados, pos).getNomeTecnicos();
         listaNomesJog = new ControleJogador(dados, pos).getNomeJogadores();
@@ -68,11 +68,11 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
 	    Object src = e.getSource();
         
         if(src == botaoAdicionarT){
-            //new TelaCadastroTime().insereEditaTime(false, dados, -1);
+            new TelaCadastroElenco().insereEditaElenco(2, dados, pos, 0);
         }
         
         if(src == botaoAdicionarJ){
-            //new TelaCadastroTime().insereEditaTime(false, dados, -1);
+            new TelaCadastroElenco().insereEditaElenco(0, dados, pos, 0);
         }
 
         if(src == botaoAtualizar){
@@ -87,10 +87,10 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
     public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
         if(e.getValueIsAdjusting() && src == listaJogadores) {
-            //
+            new TelaCadastroElenco().insereEditaElenco(1, dados, pos, listaJogadores.getSelectedIndex());
         }
         if(e.getValueIsAdjusting() && src == listaTecnicos) {
-            //
+            new TelaCadastroElenco().insereEditaElenco(3, dados, pos, listaTecnicos.getSelectedIndex());
         }
     }
 }

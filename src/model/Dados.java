@@ -65,6 +65,7 @@ public class Dados {
     }
     
     public void editaTime(Time time, int pos){    
+        this.times.remove(pos);
         this.times.add(pos, time);
     }
 
@@ -98,6 +99,7 @@ public class Dados {
     
     public void editaTecnico(Tecnico tecnico, int index_time, int pos){
         tecnicos = times.get(index_time).getTecnicos();
+        tecnicos.remove(pos);
         tecnicos.add(pos, tecnico); 
         times.get(index_time).setTecnico(tecnicos);
     }
@@ -132,6 +134,7 @@ public class Dados {
     
     public void editaJogador(Jogador jogador, int index_time, int pos){
         jogadores = times.get(index_time).getJogadores();
+        jogadores.remove(pos);
         jogadores.add(pos, jogador); 
         times.get(index_time).setJogadores(jogadores);
     }

@@ -24,10 +24,6 @@ public class ControleTecnico {
         return tecnicos.get(index).getNome();
     }
     
-    public String getPosicao(int index){
-        return tecnicos.get(index).getPosicao();
-    }
-    
     public String getID(int index){
         return String.valueOf(tecnicos.get(index).getID());
     }

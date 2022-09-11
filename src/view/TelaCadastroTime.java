@@ -68,7 +68,7 @@ public class TelaCadastroTime implements ActionListener {
             valorAprov = new JTextField(time.getAprov(pos), 200);
 
         }
-        else{
+        else {
             valorNome = new JTextField(200);
             valorAbrev = new JTextField(200);
             valorID = new JTextField(200);
@@ -169,8 +169,8 @@ public class TelaCadastroTime implements ActionListener {
                 n_dado[10] = valorAprov.getText();
 
                 if(flag){
-                    res = dados.insereEditaTime(n_dado, pos, true);
-                } else  res = dados.insereEditaTime(n_dado, pos, false);
+                    res = dados.insereEditaTime(n_dado, pos, flag);
+                } else  res = dados.insereEditaTime(n_dado, 0 ,flag);
                 
                 if(res) {
 					mensagemSucessoCadastro();
