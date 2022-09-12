@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 public class Dados {
     
-    ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
-    int jgdrs_total = 0;
-    ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
-    int tcn_total = 0;
-    ArrayList<Time> times = new ArrayList<Time>(); 
+    private ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
+    private int jgdrs_total = 0;
+    private ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
+    private int tcn_total = 0;
+    private ArrayList<Time> times = new ArrayList<Time>(); 
     /**
      * Metodo responsavel por ler os dados de um arquivo, e criar as estruturas do times em formato de lista
      */
