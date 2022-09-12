@@ -10,7 +10,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controller.*;
 import model.Dados;
-
+/**
+ * Classe TelaCadastroTime se responsabiliza por mostrar as informacoes do time selecionado
+ * ou criar tela de cadastro para um novo time caso ele ainda nao exista
+ * @author Francisco Mizael Santos da Silva
+ * @since 2022
+ * @version 1.0
+ */
 public class TelaCadastroTime implements ActionListener {
 
     private JFrame janela;
@@ -44,7 +50,13 @@ public class TelaCadastroTime implements ActionListener {
     private boolean flag;
     private int pos;
     private String aux;
-
+    /**
+     * Metodo que se responsabiliza por criar a tela de cadastro para novos times ou tela contendo as informacoes
+     * de um time para edicao
+     * @param flag variavel que indica se o time sera editado ou criado pela usuario 
+     * @param dados dados que contem a lista de times que sera trabalhada
+     * @param pos posicaso do time na lista de times
+     */
     public void insereEditaTime(boolean flag, ControleDados dados, int pos) {
 
         ControleTime time = new ControleTime(dados);
@@ -53,7 +65,8 @@ public class TelaCadastroTime implements ActionListener {
         this.pos = pos;
 
         janela = new JFrame("Cadastro Time");
-
+        
+        // Cria tela para edicao de um time ja existente
         if(flag){
             valorNome = new JTextField(time.getNome(pos), 200);
             valorAbrev = new JTextField(time.getAbrev(pos), 200);
@@ -67,7 +80,7 @@ public class TelaCadastroTime implements ActionListener {
             valorSGols = new JTextField(time.getSaldGols(pos), 200);
             valorAprov = new JTextField(time.getAprov(pos), 200);
 
-        }
+        }// Cria tela para cadastro de um novo time
         else {
             valorNome = new JTextField(200);
             valorAbrev = new JTextField(200);
@@ -152,6 +165,7 @@ public class TelaCadastroTime implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+		// Separa os dados passados pelo usuario e chama a funcao de criacao ou insercao de um time
 		if(src == botaoSalvar) {
             try{
                 boolean res;
@@ -184,6 +198,7 @@ public class TelaCadastroTime implements ActionListener {
         }
 
         if(src == botaoExcluir) {
+        	// Remove um time selecionado pelo usuario
 			boolean res = false;
             res = dados.removeTime(pos);
             if(res){
@@ -195,24 +210,32 @@ public class TelaCadastroTime implements ActionListener {
             new TelaElenco().mostraElenco(dados, pos);
         }
     }
- 
+    /**
+     * Metodo que mostra mensagem de sucesso na exclusao do time
+     */
     public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
-
+    /**
+     * Metodo que mostra mensagem de erro na exclusao do time
+     */
     public void mensagemErroExclusa() {
 		JOptionPane.showMessageDialog(null,
         "ERRO AO EXCLUIR OS DADOS!\n ", null, JOptionPane.ERROR_MESSAGE);
 	}
-	
+    /**
+     * Metodo que mostra mensagem de sucesso no cadastro do time
+     */
     public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
-	
+    /**
+     * Metodo que mostra mensagem de erro no cadastro do time
+     */
     public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
         "ERRO AO SALVAR OS DADOS!\n ", null, JOptionPane.ERROR_MESSAGE);

@@ -6,7 +6,12 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controller.*;
 
-
+/**
+ * Classe TelaElenco se responsabiliza por mostrar os jogadores e tecnicos do time
+ * @author Francisco Mizael Santos da Silva
+ * @since 2022
+ * @version 1.0
+ */
 public class TelaElenco implements ActionListener, ListSelectionListener {
     
     private static JFrame janela = new JFrame("Elenco");
@@ -20,7 +25,11 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
     private String[] listaNomesTec = new String[5];
     private String[] listaNomesJog = new String[10];
     private int pos;
-
+    /**
+     * Metodo responsavel por mostrar a tela qontendo o nome dos jogadores e tecnicos de um time para o usuario
+     * @param dados Objeto do tipo ControleDados contendo a lista de times
+     * @param pos_time posicao do time na lista de times que tera o elenco mostrado
+     */
     public void mostraElenco(ControleDados dados, int pos_time){
         
         pos = pos_time;
@@ -65,6 +74,7 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+    	// Os objetos clickados na tela invocao a funcao de insercao ou edicao dos jogadores e ou tecnicos
 	    Object src = e.getSource();
         
         if(src == botaoAdicionarT){
@@ -86,7 +96,7 @@ public class TelaElenco implements ActionListener, ListSelectionListener {
 
     public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
-        if(e.getValueIsAdjusting() && src == listaJogadores) {
+		if(e.getValueIsAdjusting() && src == listaJogadores) {
             new TelaCadastroElenco().insereEditaElenco(1, dados, pos, listaJogadores.getSelectedIndex());
         }
         if(e.getValueIsAdjusting() && src == listaTecnicos) {

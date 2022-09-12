@@ -43,7 +43,7 @@ public class ControleDados {
         return dados.getQntTimes();
     }
     /**
-     * Metodo responssavel separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados
+     * Metodo responsavel por separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados
      * @param d_time Array com os dados do time a ser adicionado ou editado
      * @param pos posicao do time na lista de times a ser editado
      * @param flag variaveel que nos diz se o time sera editado ou adiconado
@@ -116,7 +116,7 @@ public class ControleDados {
     }
     
     /**
-     * Metodo responssavel separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados lista de times
+     * Metodo responsavel por separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados lista de times
      * @param d_tecnico Array com os dados do tecnico a ser adicionado ou editado
      * @param index_time posicao do time na lista de times que recebera ou editara o tecnico
      * @param pos posicao do tecnico na lista de tecnicos de um time que sera editado ou adiconado
@@ -145,7 +145,7 @@ public class ControleDados {
     }
     /**
      * Remove um tecnico da lista de tecnicos de um time
-     * @param index_time posicao do time na lista de tmes que removera o tecnico
+     * @param index_time posicao do time na lista de times que removera o tecnico
      * @param pos posicao do tecnico na lista de tecnicos de um time que sera removido
      * @return retorna um boolean que indica o sucesso ou falha na remocao dos dados
      */
@@ -171,7 +171,7 @@ public class ControleDados {
         return dados.getQntTotalJogadores();
     }
     /**
-     * Metodo responssavel separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados lista de times
+     * Metodo responsavel por separar os dados de entrada do usuario adiciona-los ou edita-los nas estruturas de dados lista de times
      * @param d_jogador Array com os dados do jogador a ser adicionado ou editado
      * @param index_time posicao do time na lista de times que recebera ou editara o jogador
      * @param pos posicao do jogador na lista de jogadores de um time que sera editado ou adiconado
@@ -197,7 +197,7 @@ public class ControleDados {
     }
     /**
      * Remove um jogador da lista de jogadores de um time
-     * @param index_time posicao do time na lista de tmes que removera o jogador
+     * @param index_time posicao do time na lista de times que removera o jogador
      * @param pos posicao do jogador na lista de jogadores de um time que sera removido
      * @return retorna um boolean que indica o sucesso ou falha na remocao dos dados
      */

@@ -229,7 +229,7 @@ public class Time {
    }
    /**
     * Calcula o saldo de gols do time
-    * @return <code>Integer<code> com o valor do saldo de gols 
+    * @return valor do saldo de gols 
     */
    public int calcSaldo(){
       return this.gols_pro + this.gols_contra;
@@ -245,7 +245,7 @@ public class Time {
    
    /**
     * Calcula taxa de aproveitamento 
-    * @return <code>Float<code> com o valor da taxa de aproveitamento do time
+    * @return valor da taxa de aproveitamento do time
     */
    public float calcAprov(){
       return ((pontos/num_jogos) * (100/3));

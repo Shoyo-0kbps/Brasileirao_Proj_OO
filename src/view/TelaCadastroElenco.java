@@ -11,7 +11,13 @@ import javax.swing.JTextField;
 import controller.*;
 import model.Dados;
 import model.Tecnico;
-
+/**
+ * Classe TelaCadastroElenco se responsabiliza por mostrar para edicao e/ou cadastrar um novo objeto com  
+ * informacoes dos jogadores e tecnicos de um time selecionado pelo usuario
+ * @author Francisco Mizael Santos da Silva
+ * @since 2022
+ * @version 1.0
+ */
 public class TelaCadastroElenco implements ActionListener {
 
     //JLabels e respectivo JTexField
@@ -40,7 +46,15 @@ public class TelaCadastroElenco implements ActionListener {
     private int pos_time;
     private int pos;
     private String aux;
-
+    /**
+     * Metodo que mostra a lista de tecnicos e jogadores de um time selecionado 
+     * para poder ser criado novos objetos ou editando os ja existentes
+     * @param flag variavel que serve para identificar qual tipo de funcao sera realizada
+     * 0: novo jogador, 1: editar jogador, 2: novo tecnico, 3: editar tecnico
+     * @param dados dados que contem a lista de times
+     * @param pos_time posicao do time na lista de times que o usuario selecionou
+     * @param pos posicao do tecnico ou jogador na lista de tecnicos ou jogadores de um time que foi selecioado pelo usuario
+     */
     public void insereEditaElenco(int flag, ControleDados dados, int pos_time, int pos) {
 
         ControleJogador jogador = new ControleJogador(dados,pos_time);
@@ -54,8 +68,6 @@ public class TelaCadastroElenco implements ActionListener {
         janela = new JFrame("Cadastro Time");
 
         if(flag ==  0){ // Cria novo jogador
-
-            janela = new JFrame("Cadastro Jogador");
             
             valorNome = new JTextField(200);
             valorPos = new JTextField(200);
@@ -108,7 +120,7 @@ public class TelaCadastroElenco implements ActionListener {
         this.janela.add(valorNome);
         this.janela.add(valorID);
 
-        // Adiciona elementos
+        // Adiciona elementos para criacao/edicao jogador
         if(flag == 0 || flag == 1){
             
             labelPos.setBounds(40, 70, 150, 20);
@@ -129,6 +141,7 @@ public class TelaCadastroElenco implements ActionListener {
                 this.janela.add(botaoExcluir);
         } 
         
+        // Adiciona elementos para criacao/edicao tecnico
         if(flag == 2 || flag == 3){
             
             labelNJogos.setBounds(40, 70, 150, 20);
@@ -160,7 +173,7 @@ public class TelaCadastroElenco implements ActionListener {
         if(src == botaoSalvar) {
             try{
                 boolean res = false;
-
+                // Separa e invoca funcao para salvar dados de um jogador
                 if(flag == 0 || flag == 1){
                     n_dado[0] = valorNome.getText();
                     n_dado[1] = valorPos.getText();
@@ -171,7 +184,7 @@ public class TelaCadastroElenco implements ActionListener {
                         res = dados.insereEditaJogador(n_dado, pos_time, pos, false);
                     else res = dados.insereEditaJogador(n_dado, pos_time, pos, true);
                 }
-
+                // Separa e invoca funcao para salvar dados de um tecnico
                 if(flag == 2 || flag == 3){
                     n_dado[0] = valorNome.getText();
                     n_dado[1] = valorID.getText();
@@ -195,12 +208,13 @@ public class TelaCadastroElenco implements ActionListener {
 
         if(src == botaoExcluir)  {
 			boolean res = false;
-            if(flag == 1){
+            // Remove um jogadoir
+			if(flag == 1){
                 res = dados.removeJogador(pos_time, pos);
                 if(res)
                     mensagemSucessoExclusao();
                 else mensagemErroExclusa();
-            }
+            }// Remove um tecnico
             else {
                 res = dados.removeTecnico(pos_time, pos);
                 if(res)
@@ -209,24 +223,32 @@ public class TelaCadastroElenco implements ActionListener {
             }
         }
     }
-    
+    /**
+     * Metodo que mostra mensagem de sucesso na exclusao do objeto
+     */
     public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
-
+    /**
+     * Metodo que mostra mensagem de erro na exclusao do objeto
+     */
     public void mensagemErroExclusa() {
 		JOptionPane.showMessageDialog(null,
         "ERRO AO EXCLUIR OS DADOS!\n ", null, JOptionPane.ERROR_MESSAGE);
 	}
-	
+    /**
+    * Metodo que mostra mensagem de sucesso no cadastro do objeto
+    */
     public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
-	
+    /**
+     * Metodo que mostra mensagem de erro no cadastro do objeto
+     */
     public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,
         "ERRO AO SALVAR OS DADOS!\nOS DADOS PREENCHIDOS POSSUEM FORMATO\nINVALIDOS!!", null, JOptionPane.ERROR_MESSAGE);

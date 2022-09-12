@@ -8,7 +8,12 @@ import javax.swing.text.DefaultStyledDocument.ElementSpec;
 
 import controller.*;
 
-
+/**
+ * Classe TelaTabela responsavel por mostrar a tela que contem a tabela do app
+ * @author Francisco Mizael Santos da Silva
+ * @since 2022
+ * @version 1.0
+ */
 public class TelaTabela implements ActionListener, ListSelectionListener {
     
     //JLabels
@@ -122,7 +127,9 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
 
     public void actionPerformed(ActionEvent e) {
 	    Object src = e.getSource();
-        
+        /**
+         * Caso botao adicionar sera criado um novo objeto do tipo time que sera inserido na lista
+         */
         if(src == botaoAdicionar){
             new TelaCadastroTime().insereEditaTime(false, dados, -1);
         }
@@ -130,10 +137,11 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
         if(src == botaoAtualizar){
             dados.ordenaTimes();
             listaTimes.setListData(new ControleTime(dados).getNomeTimes());
-            /// TODO SALVAR DADOS
             listaTimes.updateUI();
         }
-
+        /**
+         * Chama a funcao buscar com o valor passado para o usuario em seguida editando o objeto
+         */
         if(src == botaoBuscar){
             String nome_time = valorBusca.getText();
             int aux = dados.buscaTime(nome_time);
@@ -143,10 +151,12 @@ public class TelaTabela implements ActionListener, ListSelectionListener {
                 new TelaCadastroTime().insereEditaTime(true, dados, aux);
         }
     }
-
+    
+    
     public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
-        if(e.getValueIsAdjusting() && src == listaTimes) {
+        // Invoca a tela de detalhes do time
+		if(e.getValueIsAdjusting() && src == listaTimes) {
             new TelaCadastroTime().insereEditaTime(true, dados, listaTimes.getSelectedIndex());
         }
     }

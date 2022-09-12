@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 /**
- * Classe Dados se responsabiliza por criar, alocar, manupular e obter todas as estruturas de dados do sistema
+ * Classe Dados se responsabiliza por criar, alocar, manipular e obter todas as estruturas de dados do sistema
  * @author Francisco Mizael Santos da Silva
  * @since 2022
  * @version 1.0

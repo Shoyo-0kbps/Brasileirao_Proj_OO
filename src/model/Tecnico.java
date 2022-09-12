@@ -1,6 +1,6 @@
 package model;
 /**
- * Classe Tecnico simula o comportamento de um tecnico no sistema proposta e extende o comportamento da classe abstrata Pessoa {@link src.model.Pessoa}
+ * Classe Tecnico simula o comportamento de um tecnico no sistema proposta e extende o comportamento da classe abstrata Pessoa
  * @author Francisco Mizael Santos da Silva
  * @since 2022
  * @version 1.0
